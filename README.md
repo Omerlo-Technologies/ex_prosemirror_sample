@@ -12,7 +12,15 @@ In order to use this project, read the [`Installation`](#installation) chapter.
 git clone git@github.com:Omerlo-Technologies/ex_prosemirror_sample.git
 ```
 
-2. Install assets
+
+2. Initialize git submodule
+
+``` sh
+git submodule init
+git submodule update
+```
+
+3. Install assets
 
 ``` sh
 cd apps/ex_prosemirror_sample/assets
