@@ -22,15 +22,19 @@ git clone git@github.com:Omerlo-Technologies/ex_prosemirror_sample.git
 2. Initialize git submodule
 
 ``` sh
-git submodule init
-git submodule update
+git submodule update --init
 ```
 
-3. Install assets
+3. Install Elixir dependencies
+
+```sh
+mix deps.get
+```
+
+4. Install assets
 
 ``` sh
-cd apps/ex_prosemirror_sample/assets
-npm i
+npm i --prefix apps/ex_prosemirror_sample/assets
 ```
 
 ## Run the app
