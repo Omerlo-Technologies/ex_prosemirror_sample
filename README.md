@@ -4,6 +4,12 @@ Sample application to test [`ExProsemirror`](https://github.com/Omerlo-Technolog
 
 In order to use this project, read the [`Installation`](#installation) chapter.
 
+## Requirements
+
+- Elixir `1.11`
+- Erlang `23.3`
+- Node `14.16`
+
 ## Installation
 
 1. Close this repo
