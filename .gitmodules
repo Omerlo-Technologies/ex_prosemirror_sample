@@ -1,3 +1,4 @@
-[submodule "apps/ex_prosemirror"]
+[submodule "ex_prosemirror"]
 	path = apps/ex_prosemirror
 	url = git@github.com:Omerlo-Technologies/ex_prosemirror.git
+	branch = main
