@@ -7,9 +7,9 @@
   <article class="column">
     <%= form_for :test, "#", fn f -> %>
       <% value = "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"hello world\"}]}]}" %>
-      <%= prosemirror_input f, :body, marks: [:strong, :em], blocks: [heading: [1]], value: value %>
-      <%= prosemirror_input f, :body_two, marks: [:strong, :em], blocks: [:p, heading: [1,6]], value: value %>
-      <%= prosemirror_input f, :body_three, marks: [:strong], blocks: [:p] %>
+      <%= prosemirror_input f, :body, marks: [strong: false], blocks: [p: false, h2: false], value: value %>
+      <%= prosemirror_input f, :body_two, marks: [em: false], blocks: [h6: true], value: value %>
+      <%= prosemirror_input f, :body_three %>
     <% end %>
   </article>
 </section>
