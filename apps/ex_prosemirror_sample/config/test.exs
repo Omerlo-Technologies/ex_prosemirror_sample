@@ -8,3 +8,6 @@ config :ex_prosemirror_sample, ExProsemirrorSampleWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :ex_prosemirror,
+  debug: false

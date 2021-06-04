@@ -5,11 +5,20 @@
 
 <section class="row">
   <article class="column">
-    <%= form_for :test, "#", fn f -> %>
-      <% value = "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"hello world\"}]}]}" %>
-      <%= prosemirror_input f, :body, marks: [strong: false], blocks: [p: false, h2: false], value: value %>
-      <%= prosemirror_input f, :body_two, marks: [em: false], blocks: [h6: true], value: value %>
-      <%= prosemirror_input f, :body_three %>
+    <%= form_for @changeset, Routes.page_path(@conn, :create), fn f -> %>
+      <%# value = "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"hello world\"}]}]}" %>
+      <%= prosemirror_input f, :title, type: :title %>
+      <%= error_tag f, :title %>
+      <%= prosemirror_input f, :body, marks: [strong: true, em: true], blocks: [h1: true, h2: true] %>
+      <%= prosemirror_input f, :body_two, marks: [strong: true, em: true], blocks: [image: true] %>
+      <%= prosemirror_input f, :body_three, blocks: [image: true] %>
+
+      Custom image
+      <%= prosemirror_input f, :custom_image, marks: [span: true], blocks: [h1: true, span: true] %>
+
+      <div>Insert image: <input type="file" id="image-upload"></div>
+
+      <%= submit "Submit" %>
     <% end %>
   </article>
 </section>
