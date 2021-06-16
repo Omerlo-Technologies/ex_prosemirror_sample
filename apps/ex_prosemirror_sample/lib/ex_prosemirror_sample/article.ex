@@ -8,8 +8,8 @@ defmodule ExProsemirrorSample.Article do
   import ExProsemirror.Changeset
 
   schema "article" do
-    prosemirror_field :title
-    prosemirror_field :body
+    prosemirror_field(:title, ExProsemirror.Type.Title)
+    # prosemirror_field :body
   end
 
   def changeset(struct_or_changeset, attrs \\ %{}) do

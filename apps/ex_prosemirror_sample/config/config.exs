@@ -24,7 +24,35 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 config :ex_prosemirror,
-  debug: true
+  debug: true,
+  default_blocks: [:p, {:heading, [:h1, :h2, :h3, :h4, :h5, :h6]}, :image],
+  default_marks: [:em, :strong, :underline],
+  marks_modules: [
+    em: ExProsemirror.Mark.Em,
+    strong: ExProsemirror.Mark.Strong,
+    underline: ExProsemirror.Mark.Underline,
+    strikethrough: ExProsemirror.Mark.Strikethrough,
+    span_mark: ExProsemirrorSample.Span
+  ],
+  blocks_modules: [
+    p: ExProsemirror.Block.Paragraph,
+    heading: ExProsemirror.Block.Heading,
+    image: ExProsemirror.Block.Image,
+    text: ExProsemirror.Block.Text,
+    html: ExProsemirror.Block.Paragraph
+  ],
+  types: [
+    title: [
+      blocks: [{:heading, [:h1]}],
+      marks: [:strong, :span_mark],
+      inline: false
+    ],
+    subtitle: [
+      blocks: [:p, {:heading, [:h1, :h2, :h3]}, :span, :html, :image],
+      marks: [:em, :strong, :underline, :span_mark, :strikethrough],
+      inline: false
+    ]
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

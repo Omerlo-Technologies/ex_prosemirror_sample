@@ -8,13 +8,8 @@
     <%= form_for @changeset, Routes.page_path(@conn, :create), fn f -> %>
       <%# value = "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"hello world\"}]}]}" %>
       <%= prosemirror_input f, :title, type: :title %>
+      <%= prosemirror_input f, :sub_title, type: :subtitle %>
       <%= error_tag f, :title %>
-      <%= prosemirror_input f, :body, marks: [strong: true, em: true], blocks: [h1: true, h2: true] %>
-      <%= prosemirror_input f, :body_two, marks: [strong: true, em: true], blocks: [image: true] %>
-      <%= prosemirror_input f, :body_three, blocks: [image: true] %>
-
-      Custom image
-      <%= prosemirror_input f, :custom_image, marks: [span: true], blocks: [h1: true, span: true] %>
 
       <div>Insert image: <input type="file" id="image-upload"></div>
 
