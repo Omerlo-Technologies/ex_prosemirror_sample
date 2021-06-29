@@ -32,6 +32,8 @@ config :ex_prosemirror,
     strong: ExProsemirror.Mark.Strong,
     underline: ExProsemirror.Mark.Underline,
     strikethrough: ExProsemirror.Mark.Strikethrough,
+    color: ExProsemirror.Mark.Color,
+    font_family: ExProsemirror.Mark.FontFamily,
     span_mark: ExProsemirrorSample.Span
   ],
   blocks_modules: [
@@ -43,13 +45,21 @@ config :ex_prosemirror,
   ],
   types: [
     title: [
-      blocks: [{:heading, [:h1]}],
+      blocks: [{:heading, [1]}],
       marks: [:strong, :span_mark],
-      inline: false
+      inline: true
     ],
     subtitle: [
-      blocks: [:p, {:heading, [:h1, :h2, :h3]}, :span, :html, :image],
-      marks: [:em, :strong, :underline, :span_mark, :strikethrough],
+      blocks: [:p, {:heading, [1, 2, 3]}, :span, :html, :image],
+      marks: [
+        :em,
+        :strong,
+        :underline,
+        :span_mark,
+        :strikethrough,
+        {:color, %{red: "#ff1111", blue: "#1111ff"}},
+        {:font_family, ["verdana", "Courrier New"]}
+      ],
       inline: false
     ]
   ]
