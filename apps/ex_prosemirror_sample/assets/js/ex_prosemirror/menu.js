@@ -5,7 +5,7 @@ import { marks } from './marks';
 
 export const generateTextStyleMenu = (schema) => {
   const textStyle = [
-    ...blocks.p.generateMenuItem(schema),
+    ...blocks.paragraph.generateMenuItem(schema),
     ...blocks.heading.generateMenuItem(schema),
     ...blocks.span.generateMenuItem(schema)
   ];
